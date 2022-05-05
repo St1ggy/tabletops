@@ -3,7 +3,7 @@ definePageMeta({ title: 'Добавить игру' })
 </script>
 
 <template lang="pug">
-.wrapper 123
+.wrapper Add game
 </template>
 
 <style scoped lang="scss">

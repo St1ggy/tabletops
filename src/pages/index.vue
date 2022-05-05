@@ -5,7 +5,7 @@ const router = useRouter()
 </script>
 
 <template lang="pug">
-pre.wrapper {{ JSON.stringify(router.options.routes, null, 2) }}
+pre.wrapper Main page
 </template>
 
 <style scoped lang="scss">
