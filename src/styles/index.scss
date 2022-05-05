@@ -1,0 +1,47 @@
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "themes";
+
+@layer base {
+  html {
+    @apply font-ssp;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #app {
+    @apply min-h-screen flex bg-page text-primary;
+  }
+
+  * {
+    @apply transform box-border;
+  }
+
+  @for $i from 1 through 6 {
+    h#{$i} {
+      @apply font-montserrat;
+    }
+  }
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.25s, transform 0.25s;
+}
+
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+.page-leave-to {
+  transform: translateY(10px);
+}
+
+.page-enter-from {
+  transform: translateY(-10px);
+}
