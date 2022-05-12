@@ -3,7 +3,7 @@ definePageMeta({ title: 'Главная' })
 </script>
 
 <template lang="pug">
-pre.wrapper Main page
+.wrapper Main page
 </template>
 
 <style scoped lang="scss">

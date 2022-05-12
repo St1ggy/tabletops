@@ -1,6 +1,8 @@
 import { createClient } from '@supabase/supabase-js'
 
-const { supabaseDbKey, supabaseDbUrl } = useRuntimeConfig()
+const {
+  public: { supabaseDbKey, supabaseDbUrl },
+} = useRuntimeConfig()
 
 const options = {
   schema: 'public',

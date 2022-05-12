@@ -11,39 +11,37 @@ const routes = options.routes.sort(({ name: nameA }, { name: nameB }) => {
 
 <template lang="pug">
 .side-bar
-  NuxtLink.menu-item(:key="route.name", :to="route.path", v-for="route in routes") {{ route.meta.title }}
+  NuxtLink.menu-item(:key="route.name", :to="route.path", v-for="route in routes")
+    span.ml-4 {{ route.meta.title }}
 </template>
 
 <style lang="scss">
 .side-bar {
   @apply sticky top-0 h-screen;
   @apply flex flex-col bg-page-content;
-  @apply justify-center w-52;
+  @apply justify-center w-52 basis-52;
+  min-width: theme('spacing.52');
 
   .menu-item {
-    @apply py-0.5 px-4 my-0.5 transition-colors;
+    @apply py-2 transition-colors;
     @apply text-lg text-page;
 
     &:hover {
       @apply bg-page/25;
     }
 
-    &::before {
-      content: '';
-      position: absolute;
-      width: theme('spacing.4');
-      height: 100%;
-      left: calc(-1 * theme('spacing.3'));
-      top: 0;
-      background: theme('colors.page');
-      border-radius: theme('spacing.1');
+    &:before {
+      @apply absolute w-full h-full top-0 bg-page z-[-1];
+      @apply transition-[left] duration-200 content-[''];
 
-      @apply transition-[left] duration-200;
+      left: calc(-100% + theme('spacing.2'));
     }
 
     &.router-link-active {
-      &::before {
-        left: calc(-1 * theme('spacing.2'));
+      @apply text-page-content;
+
+      &:before {
+        @apply left-0;
       }
     }
   }

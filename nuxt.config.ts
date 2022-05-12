@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     strict: true,
     typeCheck: true,
   },
-  buildModules: ['@pinia/nuxt'],
+  buildModules: ['@pinia/nuxt', ['nuxt-storm', { nested: true }]],
   build: {
     postcss: {
       postcssOptions: require('./postcss.config.js'),
@@ -15,8 +15,10 @@ export default defineNuxtConfig({
   css: ['@/styles/index'],
   ssr: false,
   runtimeConfig: {
-    supabaseDbUrl: process.env.SUPABASE_DB_URL,
-    supabaseDbKey: process.env.SUPABASE_DB_KEY,
+    public: {
+      supabaseDbUrl: '',
+      supabaseDbKey: '',
+    },
   },
   srcDir: 'src',
 })
