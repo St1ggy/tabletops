@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 
-const { supabaseKey, supabaseUrl } = useRuntimeConfig()
+const { supabaseDbKey, supabaseDbUrl } = useRuntimeConfig()
 
 const options = {
   schema: 'public',
@@ -9,4 +9,4 @@ const options = {
   detectSessionInUrl: true,
 }
 
-export const supabase = createClient(supabaseUrl, supabaseKey, options)
+export const supabase = createClient(supabaseDbUrl, supabaseDbKey, options)

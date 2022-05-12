@@ -15,8 +15,8 @@ export default defineNuxtConfig({
   css: ['@/styles/index'],
   ssr: false,
   runtimeConfig: {
-    supabaseUrl: '',
-    supabaseKey: '',
+    supabaseDbUrl: process.env.SUPABASE_DB_URL,
+    supabaseDbKey: process.env.SUPABASE_DB_KEY,
   },
   srcDir: 'src',
 })

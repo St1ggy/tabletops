@@ -15,6 +15,7 @@ type Game = {
 }
 
 export default defineEventHandler(async () => {
+  // return { games: [], WTF: useRuntimeConfig() }
   const { data: games } = await supabase.from<Game>('games').select('*')
-  return { games: games ?? [] }
+  return { games: games ?? [], WTF: useRuntimeConfig() }
 })

@@ -1,7 +1,5 @@
 <script setup lang="ts">
 definePageMeta({ title: 'Главная' })
-
-const router = useRouter()
 </script>
 
 <template lang="pug">
