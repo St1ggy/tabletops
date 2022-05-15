@@ -12,6 +12,9 @@ module.exports = {
         montserrat: ['Montserrat', ...defaultTheme.fontFamily.serif],
         ssp: ['Source Sans Pro', ...defaultTheme.fontFamily.sans],
       },
+      gridTemplateColumns: {
+        auto: 'repeat(auto-fill, minmax(0, 1fr))',
+      },
     },
     colors,
   },
