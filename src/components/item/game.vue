@@ -48,7 +48,7 @@ a.game(:href="game.stores[0].url", target="_blank")
   }
 
   .content {
-    @apply w-full items-center text-center bg-page/40 p-2 translate-y-full transition-transform;
+    @apply w-full flex flex-col items-center text-center bg-page/40 p-2 translate-y-full transition-transform;
     backdrop-filter: blur(32px);
 
     .row {
