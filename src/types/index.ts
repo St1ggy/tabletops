@@ -1,4 +1,8 @@
+import * as Icon from '@heroicons/vue/outline'
+
 export type StoreSlug = 'hobby-games'
+
+export type IconName = keyof typeof Icon
 
 export type Game = {
   id: number

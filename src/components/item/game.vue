@@ -19,18 +19,13 @@ const range = (min: number, max: number | null, extraLabel = '') => {
 <template lang="pug">
 a.game(:href="game.stores[0].url", target="_blank")
   img.image(:src="game.images[0]", v-if="game.images.length > 0")
+
   .content
     h2.title {{ game.titleRu ?? '-' }}
     h3.subtitle {{ game.titleEn ?? '-' }}
-    .playtime.row
-      Icon.icon(name="ClockIcon")
-      | {{ range(game.playtimeMin, game.playtimeMax, ' мин.') }}
-    .players.row
-      Icon.icon(name="UserGroupIcon")
-      | {{ range(game.playersMin, game.playersMax) }}
-    .price.row
-      Icon.icon(name="ShoppingCartIcon")
-      | {{ game.stores[0].price }} ₽
+    RowWithIcon.playtime(:text="range(game.playtimeMin, game.playtimeMax, ' мин.')", icon-name="ClockIcon")
+    RowWithIcon.players(:text="range(game.playersMin, game.playersMax)", icon-name="UserGroupIcon")
+    RowWithIcon.price(:text="`${game.stores[0].price} ₽`", icon-name="ShoppingCartIcon") Test
 </template>
 
 <style scoped lang="scss">
@@ -51,14 +46,6 @@ a.game(:href="game.stores[0].url", target="_blank")
     @apply w-full flex flex-col items-center text-center bg-page/40 p-2 translate-y-full transition-transform;
     backdrop-filter: blur(32px);
 
-    .row {
-      @apply flex flex-row justify-center items-center;
-    }
-
-    .icon {
-      @apply w-4 h-4 mr-1;
-    }
-
     .title {
       @apply font-black;
     }
@@ -66,10 +53,6 @@ a.game(:href="game.stores[0].url", target="_blank")
     .subtitle {
       @apply font-semibold;
     }
-  }
-
-  div {
-    @apply line-clamp-1;
   }
 }
 </style>
