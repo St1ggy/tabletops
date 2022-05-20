@@ -10,7 +10,7 @@ const props = defineProps<{ iconName: IconName; text: string }>()
   | {{ props.text }}
 </template>
 
-<style scoped lang="scss" module>
+<style scoped lang="scss">
 .row {
   @apply flex flex-row justify-center items-center;
 

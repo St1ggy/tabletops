@@ -1,5 +1,5 @@
-@import 'https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap';
-@import 'themes';
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap";
+@import "themes";
 
 @tailwind base;
 @tailwind components;
@@ -27,6 +27,10 @@
     h#{$i} {
       @apply font-montserrat;
     }
+  }
+
+  input[type='text'] {
+    @apply bg-page-content text-xl py-4 px-8 w-96 rounded-2xl text-center;
   }
 }
 

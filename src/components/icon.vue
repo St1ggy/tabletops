@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import * as Icon from '@heroicons/vue/outline'
+import * as Icon from '@heroicons/vue/solid'
 
 import type { IconName } from '@/types'
 
