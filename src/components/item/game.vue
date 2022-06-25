@@ -26,6 +26,9 @@ a.game(:href="game.stores[0].url", target="_blank")
     RowWithIcon.playtime(:text="range(game.playtimeMin, game.playtimeMax, ' мин.')", icon-name="ClockIcon")
     RowWithIcon.players(:text="range(game.playersMin, game.playersMax)", icon-name="UserGroupIcon")
     RowWithIcon.price(:text="`${game.stores[0].price} ₽`", icon-name="ShoppingCartIcon") Test
+
+  .done-indicator(v-if="game.isDone")
+    Icon(name="BadgeCheckIcon")
 </template>
 
 <style scoped lang="scss">
@@ -53,6 +56,10 @@ a.game(:href="game.stores[0].url", target="_blank")
     .subtitle {
       @apply font-semibold;
     }
+  }
+
+  .done-indicator {
+    @apply absolute top-2 right-2 w-8 h-8 text-success;
   }
 }
 </style>
