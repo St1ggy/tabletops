@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Game } from '@/types'
+import { gamesStore } from '@/stores'
 
-const { game } = defineProps<{ game: Game }>()
+const props = defineProps<{ game: Game }>()
 
 const range = (min: number, max: number | null, extraLabel = '') => {
   if (!max) {
@@ -13,6 +13,11 @@ const range = (min: number, max: number | null, extraLabel = '') => {
   }
 
   return `от ${min}${extraLabel} до ${max}${extraLabel}`
+}
+
+const markAsDone = () => {
+  const { id, isDone } = props.game
+  gamesStore.events.updateGame({ id, isDone: !isDone })
 }
 </script>
 
@@ -27,7 +32,7 @@ a.game(:href="game.stores[0].url", target="_blank")
     RowWithIcon.players(:text="range(game.playersMin, game.playersMax)", icon-name="UserGroupIcon")
     RowWithIcon.price(:text="`${game.stores[0].price} ₽`", icon-name="ShoppingCartIcon") Test
 
-  .done-indicator(v-if="game.isDone")
+  button.done-indicator(:class="{ show: game.isDone }", @click.prevent="markAsDone()")
     Icon(name="BadgeCheckIcon")
 </template>
 
@@ -42,6 +47,14 @@ a.game(:href="game.stores[0].url", target="_blank")
   &:hover {
     .content {
       @apply translate-y-0;
+    }
+
+    .done-indicator {
+      @apply opacity-40;
+
+      &:hover {
+        @apply opacity-75;
+      }
     }
   }
 
@@ -59,7 +72,11 @@ a.game(:href="game.stores[0].url", target="_blank")
   }
 
   .done-indicator {
-    @apply absolute top-2 right-2 w-8 h-8 text-success;
+    @apply absolute top-2 right-2 w-8 h-8 text-success opacity-0 transition-opacity;
+
+    &.show {
+      @apply opacity-100 #{!important};
+    }
   }
 }
 </style>

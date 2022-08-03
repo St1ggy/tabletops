@@ -1,7 +1,7 @@
 <script setup lang="ts">
-const props = withDefaults(defineProps<{ test: string }>(), { test: 'TEMPLATE' })
+withDefaults(defineProps<{ test: string }>(), { test: 'TEMPLATE' })
 </script>
 
 <template lang="pug">
-div {{ props.test }}
+div {{ test }}
 </template>

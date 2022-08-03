@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import type { IconName } from '@/types'
-
-const props = defineProps<{ iconName: IconName; text: string }>()
+defineProps<{ iconName: IconName; text: string }>()
 </script>
 
 <template lang="pug">
 .row
-  Icon.icon(:name="props.iconName")
-  | {{ props.text }}
+  Icon.icon(:name="iconName")
+  | {{ text }}
 </template>
 
 <style scoped lang="scss">

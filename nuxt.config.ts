@@ -4,9 +4,9 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   typescript: {
     strict: true,
-    typeCheck: true,
+    typeCheck: false,
   },
-  buildModules: ['@nuxt/typescript-build', '@pinia/nuxt', ['nuxt-storm', { nested: true }]],
+  buildModules: ['@nuxt/typescript-build', ['nuxt-storm', { nested: true }]],
   build: {
     postcss: {
       postcssOptions: require('./postcss.config.js'),

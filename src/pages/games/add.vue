@@ -1,5 +1,8 @@
 <script setup lang="ts">
-definePageMeta({ title: 'Добавить игру' })
+definePageMeta({
+  middleware: ['auth'],
+  title: 'Добавить игру',
+})
 </script>
 
 <template lang="pug">
